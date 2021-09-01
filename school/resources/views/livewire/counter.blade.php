@@ -5,5 +5,10 @@
         <button wire:click="increment">+</button>
         <h1>{{ $count }}</h1>
         <button wire:click="decrement">-</button>
+
+        <div>
+            <input type="text" wire:model.lazy="name"> <br />
+            <span>{{ $name }}</span>
+        </div>
     </div>
 </div>
