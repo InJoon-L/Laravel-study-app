@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\JWTAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,6 @@ Route::get('unauthorized', function() {
         'message' => 'Unauthorized'
     ], 401);
 })->name('api.jwt.unauthorized');
+
+Route::get('social/google', [GoogleSocialiteController::class, 'redirectToGoogle']);
+Route::get('callback', [GoogleSocialiteController::class, 'handleCallback']);
