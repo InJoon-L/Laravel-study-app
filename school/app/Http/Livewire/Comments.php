@@ -20,7 +20,7 @@ class Comments extends Component
 
     protected $rules = [
         'newComment' => 'required|string',
-        'image' => 'image|max:2048'
+        'image' => 'nullable|image|max:2048'
     ];
 
     protected $listeners = [
