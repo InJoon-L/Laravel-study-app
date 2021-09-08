@@ -6,6 +6,22 @@
             </div>
         @endif
     </div>
+
+    <section>
+        @if ($image)
+            <img src="{{ $image->temporaryUrl() }}" width="200">
+        @endif
+        <input type="file" wire:model="image" id="image" wire:loading.attr="disabled">
+        <div wire:loading wire:target="image">
+            File Uploading...
+        </div>
+        @error('image')
+            <div class="text-red-700">
+                <span>{{ $message }}</span>
+            </div>
+        @enderror
+    </section>
+
     <form class="flex my-4" wire:submit.prevent="addComment">
         <input wire:model.lazy="newComment"
             type="text" class="w-full p-2 my-2 mr-2 border rounded shadow"
@@ -38,7 +54,7 @@
                 {{ $comment->content }}
             </p>
             @if ($comment->image)
-                <img src="{{ $comment->image }}" />
+                <img src="{{ $comment->image_path }}" />
             @endif
         </div>
     </div>
