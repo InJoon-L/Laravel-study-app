@@ -14,8 +14,12 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+        <!-- Alpine v2 -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
         @livewireStyles
         @livewireScripts
+        @livewire('livewire-ui-modal')
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>

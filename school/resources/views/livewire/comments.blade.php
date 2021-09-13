@@ -49,6 +49,8 @@
                 </p>
                 <i wire:click="$emit('deleteClicked', {{ $comment->id }})"
                  class="text-red-200 cursor-pointer hover:text-red-600 fas fa-times"></i>
+                <i wire:click="$emit('openModal', 'edit-comment', {{ json_encode(['commentId' => $comment->id]) }})"
+                 class="mx-5 text-red-200 cursor-pointer hover:text-red-600 fas fa-edit"></i>
             </div>
             <p class="text-gray-800">
                 {{ $comment->content }}
