@@ -17,6 +17,7 @@ class Comments extends Component
 
     public $newComment;
     public $image;
+    public $userId;
 
     protected $rules = [
         'newComment' => 'required|string',
@@ -24,8 +25,18 @@ class Comments extends Component
     ];
 
     protected $listeners = [
-        'delete' => 'remove'
+        'delete' => 'remove',
+        'commentUpdated' => 'getComments',
+        'userSelected',
     ];
+
+    public function userSelected($userId) {
+        $this->userId = $userId;
+    }
+
+    public function getComments() {
+
+    }
 
     public function updated($propertyName) {
         $this->validateOnly($propertyName);
@@ -82,7 +93,7 @@ class Comments extends Component
     public function render()
     {
         return view('livewire.comments', [
-            'comments' => Comment::latest()->paginate(5)
+            'comments' => Comment::where('user_id', $this->userId)->latest()->paginate(5)
         ]);
     }
 }

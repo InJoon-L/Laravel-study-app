@@ -14,12 +14,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <!-- Alpine v2 -->
-        {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
-
-        <!-- Alpine v3 -->
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
         @livewireStyles
         @livewireScripts
         <!-- Scripts -->
