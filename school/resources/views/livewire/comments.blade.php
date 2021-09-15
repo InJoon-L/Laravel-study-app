@@ -7,6 +7,7 @@
         @endif
     </div>
 
+    @if ($userId == auth()->user()->id)
     <section>
         @if ($image)
             <img src="{{ $image->temporaryUrl() }}" width="200">
@@ -37,6 +38,8 @@
             </button>
         </div>
     </form>
+    @endif
+
     @foreach ($comments as $comment)
     <div class="p-3 my-2 border rounded shadow">
         <div class="flex justify-between my-2">

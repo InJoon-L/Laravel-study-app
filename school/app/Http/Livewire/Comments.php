@@ -43,7 +43,9 @@ class Comments extends Component
     }
 
     public function mount() {
-        // $this->newComment = "Hello World";
+        if (!$this->userId) {
+            $this->userId = auth()->user()->id;
+        }
     }
 
     public function remove($commentId) {

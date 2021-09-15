@@ -18,7 +18,7 @@ class UserList extends Component
     }
 
     public function mount() {
-
+        $this->userId = auth()->user()->id;
     }
 
     public function render()
