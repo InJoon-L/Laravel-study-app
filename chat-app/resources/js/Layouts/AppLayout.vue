@@ -22,6 +22,10 @@
                                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </jet-nav-link>
+
+                                <jet-nav-link :href="route('chat')" :active="route().current('chat')">
+                                    Chat
+                                </jet-nav-link>
                             </div>
                         </div>
 
@@ -65,7 +69,7 @@
                                                     Switch Teams
                                                 </div>
 
-                                                <template v-for="team in $page.props.user.all_teams" :key="team.id">
+                                                <!-- <template v-for="team in $page.props.user.all_teams" :key="team.id">
                                                     <form @submit.prevent="switchToTeam(team)">
                                                         <jet-dropdown-link as="button">
                                                             <div class="flex items-center">
@@ -74,7 +78,7 @@
                                                             </div>
                                                         </jet-dropdown-link>
                                                     </form>
-                                                </template>
+                                                </template> -->
                                             </template>
                                         </div>
                                     </template>
@@ -145,6 +149,10 @@
                         <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </jet-responsive-nav-link>
+
+                        <jet-responsive-nav-link :href="route('chat')" :active="route().current('chat')">
+                            Chat
+                        </jet-responsive-nav-link>
                     </div>
 
                     <!-- Responsive Settings Options -->
@@ -200,7 +208,7 @@
                                     Switch Teams
                                 </div>
 
-                                <template v-for="team in $page.props.user.all_teams" :key="team.id">
+                                <!-- <template v-for="team in $page.props.user.all_teams" :key="team.id">
                                     <form @submit.prevent="switchToTeam(team)">
                                         <jet-responsive-nav-link as="button">
                                             <div class="flex items-center">
@@ -209,7 +217,7 @@
                                             </div>
                                         </jet-responsive-nav-link>
                                     </form>
-                                </template>
+                                </template> -->
                             </template>
                         </div>
                     </div>
