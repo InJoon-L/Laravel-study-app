@@ -1,7 +1,14 @@
 <template>
     <app-layout>
+        <template #header>
+            <ChatRoomSelection
+                :rooms="chatRooms"
+                :currentRoom="currentRoom"
+                v-on:roomChanged="setRoom($event)"
+            />
+        </template>
         <MessageContainer :messages="messages"/>
-        <InputMessage />
+        <InputMessage :room="currentRoom" v-on:messagesent="getMessages"/>
     </app-layout>
 </template>
 
@@ -9,17 +16,19 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import MessageContainer from './messageContainer.vue';
 import InputMessage from './inputMessage.vue';
+import ChatRoomSelection from './chatRoomSelection.vue';
 
 export default {
     components: {
         AppLayout,
         MessageContainer,
-        InputMessage
+        InputMessage,
+        ChatRoomSelection,
     },
     data() {
         return {
             chatRooms: [],
-            currentRoom: '',
+            currentRoom: {},
             messages: []
         }
     },
@@ -38,15 +47,17 @@ export default {
             this.currentRoom = room;
             this.getMessages();
         },
-        getMessages() {
-            axios.get('/chat/room/' + this.currentRoom.id + '/messages')
-            .then(res => {
-                console.log(res.data)
-                this.messages = res.data;
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        async getMessages() {
+            // axios.get('/chat/room/' + this.currentRoom.id + '/messages')
+            // .then(res => {
+            //     console.log(res.data)
+            //     this.messages = res.data;
+            // })
+            // .catch(err => {
+            //     console.log(err);
+            // });
+            let res = await axios.get('/chat/room/' + this.currentRoom.id + '/messages');
+            this.messages = res.data;
         }
     },
     created() {
