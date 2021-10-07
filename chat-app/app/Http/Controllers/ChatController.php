@@ -33,10 +33,13 @@ class ChatController extends Controller
     }
 
     public function newMessage(Request $request, $roomId) {
+        $request->validate(['message' => 'required']);
         ChatMessage::create([
             'user_id' => auth()->user()->id,
             'chat_room_id' => $roomId,
             'message' => $request->message,
         ]);
+
+        broadcast(/*이벤트 객체 */)->toOthers();
     }
 }
