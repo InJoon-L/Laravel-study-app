@@ -8,7 +8,7 @@
             />
         </template>
         <!-- <MessageContainer :messages="messages"/> -->
-        <styled-message-container :messages="messages" />
+        <styled-message-container :messages="messages"/>
         <InputMessage :room="currentRoom" v-on:messagesent="getMessages"/>
     </app-layout>
 </template>
@@ -73,7 +73,7 @@ export default {
             //     this.disconnect(this.currentRoom);
             // }
             this.currentRoom = room;
-            this.connect();
+            // this.connect();
         },
         async getMessages() {
             // axios.get('/chat/room/' + this.currentRoom.id + '/messages')
