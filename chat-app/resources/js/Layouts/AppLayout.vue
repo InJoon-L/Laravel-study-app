@@ -23,7 +23,7 @@
                                     Dashboard
                                 </jet-nav-link>
 
-                                <jet-nav-link :href="route('chat')" :active="route().current('chat')">
+                                <jet-nav-link :href="route('chatV2')" :active="route().current('chatV2')">
                                     Chat
                                 </jet-nav-link>
                             </div>
@@ -150,7 +150,7 @@
                             Dashboard
                         </jet-responsive-nav-link>
 
-                        <jet-responsive-nav-link :href="route('chat')" :active="route().current('chat')">
+                        <jet-responsive-nav-link :href="route('chatV2')" :active="route().current('chatV2')">
                             Chat
                         </jet-responsive-nav-link>
                     </div>

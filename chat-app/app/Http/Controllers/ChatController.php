@@ -14,6 +14,10 @@ class ChatController extends Controller
         return Inertia::render('Chat/container');
     }
 
+    public function indexV2() {
+        return Inertia::render('Chat/containerV2');
+    }
+
 
     /*
         1. 채팅방 리스트 리턴
@@ -27,7 +31,7 @@ class ChatController extends Controller
 
     public function messages($roomId) {
         // select * from chat_messages where room_id = ?
-        $msgs = ChatMessage::where('chat_room_id', $roomId)->with('user')->latest()->get();
+        $msgs = ChatMessage::where('chat_room_id', $roomId)->with('user')->latest()->paginate(3);
         // lazy loading VS eager loading
         // dd($msgs);
         return $msgs;
@@ -41,7 +45,8 @@ class ChatController extends Controller
             'message' => $request->message,
         ]);
 
-        broadcast(new NewChatMessage($msg->chat_room_id))->toOthers();
+        $msg->load('user');
+        broadcast(new NewChatMessage($msg))->toOthers();
         return $msg;
     }
 }
