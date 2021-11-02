@@ -45,3 +45,9 @@ Route::middleware(['auth:sanctum', 'verified'])->patch('/classes/update/{classId
     ->name('classes.update'); // 교과목 변경
 Route::middleware(['auth:sanctum', 'verified'])->delete('/classes/delete/{classId}', [ClassesController::class, 'destroy'])
     ->name('classes.destroy'); // 교과목 삭제
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/classes/register/{classId}', [ClassesController::class, 'register'])
+    ->name('classes.register'); // 수강신청 및 수강취소
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/classes/users/{classId}', [ClassesController::class, 'users'])
+    ->name('classes.users'); // 수강신청한 사용자 리스트

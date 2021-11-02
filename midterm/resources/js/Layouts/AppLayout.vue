@@ -28,7 +28,8 @@
                                 <jet-nav-link :href="route('classes')" :active="route().current('classes')">
                                     교과목 목록
                                 </jet-nav-link>
-                                <jet-nav-link :href="route('classes.create')" :active="route().current('classes.create')">
+                                <jet-nav-link v-if="$page.props.isAdmin"
+                                :href="route('classes.create')" :active="route().current('classes.create')">
                                     교과목 등록
                                 </jet-nav-link>
                             </div>
@@ -153,6 +154,16 @@
                     <div class="pt-2 pb-3 space-y-1">
                         <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
+                        </jet-responsive-nav-link>
+                        <jet-responsive-nav-link :href="route('classes.registered')" :active="route().current('classes.registered')">
+                            수강목록
+                        </jet-responsive-nav-link>
+                        <jet-responsive-nav-link :href="route('classes')" :active="route().current('classes')">
+                            교과목 목록
+                        </jet-responsive-nav-link>
+                        <jet-responsive-nav-link v-if="$page.props.isAdmin"
+                            :href="route('classes.create')" :active="route().current('classes.create')">
+                            교과목 등록
                         </jet-responsive-nav-link>
                     </div>
 

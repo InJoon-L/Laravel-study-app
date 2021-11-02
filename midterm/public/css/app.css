@@ -1221,12 +1221,6 @@ select {
 .mb-4 {
 	margin-bottom: 1rem;
 }
-.-mt-px {
-	margin-top: -1px;
-}
-.mb-8 {
-	margin-bottom: 2rem;
-}
 .-mb-1 {
 	margin-bottom: -0.25rem;
 }
@@ -1235,6 +1229,15 @@ select {
 }
 .mb-1 {
 	margin-bottom: 0.25rem;
+}
+.mb-8 {
+	margin-bottom: 2rem;
+}
+.mr-4 {
+	margin-right: 1rem;
+}
+.-mt-px {
+	margin-top: -1px;
 }
 .block {
 	display: block;
@@ -1283,9 +1286,6 @@ select {
 }
 .h-20 {
 	height: 5rem;
-}
-.h-full {
-	height: 100%;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1509,9 +1509,6 @@ select {
 .border-b {
 	border-bottom-width: 1px;
 }
-.border-r {
-	border-right-width: 1px;
-}
 .border-gray-300 {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
@@ -1530,10 +1527,6 @@ select {
 .border-gray-100 {
 	--tw-border-opacity: 1;
 	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
-}
-.border-gray-500 {
-	--tw-border-opacity: 1;
-	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
 }
 .bg-white {
 	--tw-bg-opacity: 1;
@@ -1583,13 +1576,25 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
+.bg-blue-700 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
+}
 .bg-blue-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
 }
-.bg-blue-700 {
+.bg-red-400 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
+	background-color: rgba(248, 113, 113, var(--tw-bg-opacity));
+}
+.bg-green-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
+}
+.bg-yellow-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(251, 191, 36, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -1841,6 +1846,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
+.text-black {
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
 .underline {
 	text-decoration: underline;
 }
@@ -1966,13 +1975,21 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
 }
+.hover\:bg-white:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+}
 .hover\:bg-blue-400:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
 }
-.hover\:bg-white:hover {
+.hover\:bg-green-300:hover {
 	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+}
+.hover\:bg-yellow-600:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(217, 119, 6, var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;

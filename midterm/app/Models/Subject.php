@@ -14,4 +14,10 @@ class Subject extends Model
         'credit',
         'description'
     ];
+
+    protected $with = ['users'];
+
+    function users() {
+        return $this->belongsToMany(User::class);
+    }
 }
