@@ -25,7 +25,7 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 
-], function ($router) {
+], function () {
     Route::get('user', [JWTAuthController::class, 'user']);
     Route::post('register', [JWTAuthController::class, 'register']);
     Route::post('login', [JWTAuthController::class, 'login']);

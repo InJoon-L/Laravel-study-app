@@ -63,7 +63,7 @@ export default defineComponent({
     },
     methods: {
         submit() {
-            alert(this.form.description);
+            alert('교과목 등록 완료');
             this.$inertia.post('/classes/store', this.form)
         }
     }

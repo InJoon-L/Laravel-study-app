@@ -85,6 +85,7 @@
         },
         computed : {
             numOfRegisteredClasses() {
+                console.log(this.subjects)
                 return this.subjects.length;
             },
             totalCredits() {

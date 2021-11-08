@@ -143,7 +143,7 @@ class ClassesController extends Controller
     public function index_cr() {
         auth()->user()->load('subjects.users');
 
-        return Inertia::render('classesRegistered', ['subject' => fn() => auth()->user()->subjects]);
+        return Inertia::render('ClassesRegistered', ['subjects' => fn() => auth()->user()->subjects]);
     }
 
     public function users($id) {
