@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfilesController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,5 +26,8 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard', ['username' => auth()->user()->name]);
+    return Inertia::render('Dashboard', ['user' => auth()->user()]);
 })->name('dashboard');
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/profile/{name}', [ProfilesController::class, 'index']);
