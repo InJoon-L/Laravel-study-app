@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfilesController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -26,8 +28,10 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard', ['user' => auth()->user()]);
+    return Inertia::render('Dashboard', ['user' => auth()->user(), 'posts' => Auth::user()->posts]);
 })->name('dashboard');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/profile/{name}', [ProfilesController::class, 'index']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/profiles/{name}', [ProfilesController::class, 'index']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/post/create', [PostsController::class, 'create'])->name('post.create');
+Route::middleware(['auth:sanctum', 'verified'])->post('/post/store', [PostsController::class, 'store'])->name('post.store');

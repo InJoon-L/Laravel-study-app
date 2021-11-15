@@ -30,6 +30,12 @@ class User extends Authenticatable
         'username'
     ];
 
+    public function posts() {
+        return $this->hasMany(Post::class)->latest();
+    }
+
+    protected $with = ['profile'];
+
     public function profile() {
         return $this->hasOne(Profile::class);
     }

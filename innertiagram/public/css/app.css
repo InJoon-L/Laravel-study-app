@@ -1187,11 +1187,11 @@ select {
 .-mt-px {
 	margin-top: -1px;
 }
-.mb-2 {
-	margin-bottom: 0.5rem;
-}
 .mr-10 {
 	margin-right: 2.5rem;
+}
+.mb-2 {
+	margin-bottom: 0.5rem;
 }
 .block {
 	display: block;
@@ -1719,11 +1719,11 @@ select {
 .font-semibold {
 	font-weight: 600;
 }
-.font-bold {
-	font-weight: 700;
-}
 .font-black {
 	font-weight: 900;
+}
+.font-bold {
+	font-weight: 700;
 }
 .uppercase {
 	text-transform: uppercase;
