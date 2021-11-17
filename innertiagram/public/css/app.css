@@ -1115,6 +1115,14 @@ select {
 	margin-left: auto;
 	margin-right: auto;
 }
+.mx-3 {
+	margin-left: 0.75rem;
+	margin-right: 0.75rem;
+}
+.my-4 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
 .ml-3 {
 	margin-left: 0.75rem;
 }
@@ -1192,6 +1200,9 @@ select {
 }
 .mb-2 {
 	margin-bottom: 0.5rem;
+}
+.mr-1 {
+	margin-right: 0.25rem;
 }
 .block {
 	display: block;
@@ -1574,6 +1585,9 @@ select {
 .p-10 {
 	padding: 2.5rem;
 }
+.p-3 {
+	padding: 0.75rem;
+}
 .px-4 {
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -1721,9 +1735,6 @@ select {
 }
 .font-black {
 	font-weight: 900;
-}
-.font-bold {
-	font-weight: 700;
 }
 .uppercase {
 	text-transform: uppercase;
@@ -1938,6 +1949,10 @@ select {
 .hover\:bg-gray-50:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+}
+.hover\:bg-gray-300:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;
@@ -2292,6 +2307,11 @@ select {
 		grid-column: span 1 / span 1;
 	}
 
+	.md\:mx-0 {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
 	.md\:mt-0 {
 		margin-top: 0px;
 	}
@@ -2324,6 +2344,11 @@ select {
 
 	.lg\:col-span-4 {
 		grid-column: span 4 / span 4;
+	}
+
+	.lg\:mx-0 {
+		margin-left: 0px;
+		margin-right: 0px;
 	}
 
 	.lg\:grid-cols-3 {
