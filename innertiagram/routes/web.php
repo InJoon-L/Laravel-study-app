@@ -35,3 +35,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/profiles/{name}', [ProfilesController::class, 'index']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/post/create', [PostsController::class, 'create'])->name('post.create');
 Route::middleware(['auth:sanctum', 'verified'])->post('/post/store', [PostsController::class, 'store'])->name('post.store');
+Route::middleware(['auth:sanctum', 'verified'])->patch('/profiles/update', [ProfilesController::class, 'update'])->name('profile.update');

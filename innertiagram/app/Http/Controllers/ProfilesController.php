@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class ProfilesController extends Controller
@@ -70,12 +72,24 @@ class ProfilesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
+        // profile시 못 찾음
+        // Auth::user()->profile->update($data);
+        $profile = new Profile();
+        $profile->user_id = Auth::user()->id;
+        $profile->title = $request->title;
+        $profile->description = $request->description;
+        $profile->save();
+
+        return Inertia::render('Dashboard', ['user' => fn() => Auth::user(), 'posts' => fn() => Auth::user()->posts]);
     }
 
     /**
