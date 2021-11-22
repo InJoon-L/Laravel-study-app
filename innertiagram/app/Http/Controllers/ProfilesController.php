@@ -96,7 +96,7 @@ class ProfilesController extends Controller
         return Inertia::render('Dashboard', [
             'user' => fn() => Auth::user(),
             'posts' => fn() => Auth::user()->posts,
-            'can' => true,
+            'can' => ['create_update' => true],
             'viewed_user' => Auth::user(),
         ]);
     }
