@@ -28,7 +28,14 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard', ['user' => auth()->user(), 'posts' => Auth::user()->posts]);
+    return Inertia::render(
+        'Dashboard',
+        [
+            'user' => auth()->user(),
+            'posts' => Auth::user()->posts,
+            'can' => ['create_update' => true],
+            'viewed_user' => Auth::user(),
+        ]);
 })->name('dashboard');
 
 

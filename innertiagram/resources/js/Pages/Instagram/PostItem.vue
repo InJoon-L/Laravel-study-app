@@ -13,10 +13,27 @@
                 </div>
                     <img class="w-full bg-cover" :src="'/storage/' + post.image" alt="photo"/>
                     <div class="px-3 pb-2">
-                    <div class="mt-2">
-                        <span>{{ post.caption }}</span>
+                    <div class="flex flex-row items-center mt-2">
+                        <div class="flex-shrink-0 mr-3">
+                            <Link :href="'/profiles/' + viewed_user.name">
+                                <img class="object-cover w-10 h-10 rounded-full" :src="viewed_user.profile_photo_url">
+                            </Link>
+                        </div>
+                        <Link :href="'/profiles/' + viewed_user.name">
+                            <span class="mr-1 font-black">{{ viewed_user.name }}</span>
+                        </Link>
+                        <span class="mr-1 font-black">팔로잉</span>
                     </div>
-                    <div class="pt-2">
+                    <hr class="my-4" />
+                    <div class="flex flex-row mt-2">
+                        <div class="flex-shrink-0 mr-3">
+                            <Link :href="'/profiles/' + viewed_user.name">
+                                <img class="object-cover w-10 h-10 rounded-full" :src="viewed_user.profile_photo_url" >
+                            </Link>
+                        </div>
+                        <Link :href="'/profiles/' + viewed_user.name">
+                            <span class="mr-1 font-black">{{ viewed_user.name }}</span>
+                        </Link>
                         <i class="cursor-pointer far fa-heart"></i>
                         <span class="text-sm font-medium text-gray-400">12 likes</span>
                     </div>
@@ -57,6 +74,7 @@
 
 <script>
 import JetDialogModal from '@/Jetstream/ConfirmationModal.vue';
+import { Link } from '@inertiajs/inertia-vue3';
 
 export default {
     props : [
@@ -65,6 +83,7 @@ export default {
     ],
     components  : {
         JetDialogModal,
+        Link
     },
     data() {
         return {

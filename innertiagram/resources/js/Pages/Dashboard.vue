@@ -1,7 +1,7 @@
 <template>
     <app-layout title="Dashboard">
         <template #header>
-            <div class="flex flex-row items-start">
+            <div class="flex flex-col items-start md:flex-row">
                 <div class="flex-shrink-0 mr-3 px-40"
                     v-if="$page.props.jetstream.managesProfilePhotos">
                     <img :src="$page.props.user.profile_photo_url"
@@ -13,8 +13,10 @@
                             {{ user.name }}
                         </h2>
                         <!-- <Link :href="route('post.create')"> -->
+                        <div v-if="can.create_update == true">
                             <jet-secondary-button class="mb-4" @click="createNewPost=true">Add New Post</jet-secondary-button>
                             <jet-secondary-button class="mb-4" @click="editProfile=true">Edit Profile</jet-secondary-button>
+                        </div>
                         <!-- </Link> -->
                     </div>
                     <div class="mb-4 flex flex-row">
@@ -32,7 +34,7 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <post-list :posts="posts" />
+                    <post-list :posts="posts" :viewed_user="viewed_user" />
                 </div>
             </div>
         </div>
@@ -126,7 +128,9 @@
     export default defineComponent({
         props:[
             'user',
-            'posts'
+            'posts',
+            'can',
+            'viewed_user'
         ],
         components: {
             AppLayout,

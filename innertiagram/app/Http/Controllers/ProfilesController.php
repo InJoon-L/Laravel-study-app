@@ -20,7 +20,12 @@ class ProfilesController extends Controller
         $user = User::where('name', $name)->first();
 
         if ($user)
-            return Inertia::render('Dashboard', ['user' => $user]);
+            return Inertia::render('Dashboard', [
+                'user' => $user,
+                'posts' => $user->posts,
+                'can' => ['create_update' => Auth::user()->id == $user->id],
+                'viewed_user' => $user,
+            ]);
         else
             return Inertia::render('Notfound');
     }
@@ -81,7 +86,6 @@ class ProfilesController extends Controller
             'description' => 'required'
         ]);
 
-        // profile시 못 찾음
         // Auth::user()->profile->update($data);
         $profile = new Profile();
         $profile->user_id = Auth::user()->id;
@@ -89,7 +93,12 @@ class ProfilesController extends Controller
         $profile->description = $request->description;
         $profile->save();
 
-        return Inertia::render('Dashboard', ['user' => fn() => Auth::user(), 'posts' => fn() => Auth::user()->posts]);
+        return Inertia::render('Dashboard', [
+            'user' => fn() => Auth::user(),
+            'posts' => fn() => Auth::user()->posts,
+            'can' => true,
+            'viewed_user' => Auth::user(),
+        ]);
     }
 
     /**
