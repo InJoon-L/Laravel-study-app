@@ -5,13 +5,16 @@
                 <div class="flex-shrink-0 mr-3 px-40"
                     v-if="$page.props.jetstream.managesProfilePhotos">
                     <img :src="$page.props.user.profile_photo_url"
-                        :alt="$page.props.user.name" class="rounded-full h-40 w-40 object-cover" />
+                        :alt="$page.props.user.name" class="object-cover w-40 h-40 rounded-full" />
                 </div>
-                <div class="flex-col justify-items-start">
-                    <div class="flex flex-row justify-between">
-                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                            {{ user.name }}
-                        </h2>
+                <div class="flex-col mt-2 justify-items-start">
+                    <div class="flex flex-row items-end justify-between">
+                        <div class="flex flex-row items-end my-4">
+                            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                                {{ viewed_user.name }}
+                            </h2>
+                            <follow-button :user="user" :viewed_user="viewed_user"/>
+                        </div>
                         <!-- <Link :href="route('post.create')"> -->
                         <div v-if="can.create_update == true">
                             <jet-secondary-button class="mb-4" @click="createNewPost=true">Add New Post</jet-secondary-button>
@@ -21,8 +24,8 @@
                     </div>
                     <div class="mb-4 flex flex-row">
                         <div class="mr-10">게시물 <span class="font-black">{{ posts.length }}</span> </div>
-                        <div class="mr-10">팔로워 80</div>
-                        <div class="mr-10">팔로우 72</div>
+                        <div class="mr-10">팔로워 <span class="font-black">{{ followers }}</span></div>
+                        <div class="mr-10">팔로우 <span class="font-black">{{ viewed_user.profile.followers.length }}</span></div>
                     </div>
                     <div class="mb-4">{{ user.username }}</div>
                     <div class="mb-4">{{ user.profile ? user.profile.title : 'No Title'}}</div>
@@ -124,13 +127,15 @@
     import JetInput from '@/Jetstream/Input.vue'
     import JetInputError from '@/Jetstream/InputError.vue'
     import JetLabel from '@/Jetstream/Label.vue'
+    import FollowButton from '@/Pages/Instagram/FollowButton.vue'
 
     export default defineComponent({
         props:[
             'user',
             'posts',
             'can',
-            'viewed_user'
+            'viewed_user',
+            'followers',
         ],
         components: {
             AppLayout,
@@ -139,7 +144,8 @@
             JetSecondaryButton,
             JetInput,
             JetInputError,
-            JetLabel
+            JetLabel,
+            FollowButton
         },
         data() {
             return {

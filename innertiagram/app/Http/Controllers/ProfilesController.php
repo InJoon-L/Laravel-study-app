@@ -25,6 +25,7 @@ class ProfilesController extends Controller
                 'posts' => $user->posts,
                 'can' => ['create_update' => Auth::user()->id == $user->id],
                 'viewed_user' => $user,
+                'followers' => $user->profile->followers->count(),
             ]);
         else
             return Inertia::render('Notfound');
@@ -98,6 +99,7 @@ class ProfilesController extends Controller
             'posts' => fn() => Auth::user()->posts,
             'can' => ['create_update' => true],
             'viewed_user' => Auth::user(),
+            'followers' => $user->profile->followers->count(),
         ]);
     }
 

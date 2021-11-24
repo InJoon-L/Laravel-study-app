@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfilesController;
 use Illuminate\Foundation\Application;
@@ -35,6 +36,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
             'posts' => Auth::user()->posts,
             'can' => ['create_update' => true],
             'viewed_user' => Auth::user(),
+            'followers' => Auth::user()->profile->followers->count(),
         ]);
 })->name('dashboard');
 
@@ -43,3 +45,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/profiles/{name}', [Profil
 Route::middleware(['auth:sanctum', 'verified'])->get('/post/create', [PostsController::class, 'create'])->name('post.create');
 Route::middleware(['auth:sanctum', 'verified'])->post('/post/store', [PostsController::class, 'store'])->name('post.store');
 Route::middleware(['auth:sanctum', 'verified'])->patch('/profiles/update', [ProfilesController::class, 'update'])->name('profile.update');
+Route::middleware(['auth:sanctum', 'verified'])->post('/follow/{user}', [FollowsController::class, 'store'])->name('follow.store');

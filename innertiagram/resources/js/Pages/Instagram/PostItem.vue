@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mt-5 overflow-hidden rounded shadow-lg">
-        <a  @click="imgClicked()"> <img class="w-full" :src="'/storage/' + post.image"  :alt="post.image"> </a>
+        <a  @click="imgClicked()"> <img class="w-full" :src="post.image"  :alt="post.image"> </a>
     </div>
 
     <jet-dialog-modal :show="showPost" @close="showPost = false">
@@ -11,7 +11,7 @@
                 <div class="flex justify-between w-full p-3">
                     <span class="px-2 rounded cursor-pointer hover:bg-gray-300"><i class="pt-2 text-lg fas fa-ellipsis-h"></i></span>
                 </div>
-                    <img class="w-full bg-cover" :src="'/storage/' + post.image" alt="photo"/>
+                    <img class="w-full bg-cover" :src="post.image" alt="photo"/>
                     <div class="px-3 pb-2">
                     <div class="flex flex-row items-center mt-2">
                         <div class="flex-shrink-0 mr-3">
